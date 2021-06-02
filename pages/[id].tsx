@@ -184,7 +184,19 @@ const EmbeddedYoutubeVideo = ({ videoUrl }: EmbeddedYoutubeVideoProps): JSX.Elem
       </div>
     )
   } catch (e) {
-    return <div>An error occurred displaying the launch video</div>
+    return (
+      <div className="error">
+        An error occurred displaying the launch video
+        <style jsx>{`
+          .error {
+            color: white;
+            font-family: 'D-DIN';
+            font-size: 16px;
+            text-align: center;
+          }
+        `}</style>
+      </div>
+    )
   }
 }
 
