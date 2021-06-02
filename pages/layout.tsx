@@ -13,6 +13,10 @@ const Layout: NextPage<LayoutPageProps> = ({ children }) => (
     <style jsx>{`
       .layout {
         padding: 50px;
+
+        @media screen and (max-width: 800px) {
+          padding: 10%;
+        }
       }
     `}</style>
   </div>
@@ -36,6 +40,11 @@ const Header = (): JSX.Element => (
         > img {
           width: 300px;
           cursor: pointer;
+
+          @media screen and (max-width: 800px) {
+            width: 100%;
+            max-width: 200px;
+          }
         }
 
         > span {

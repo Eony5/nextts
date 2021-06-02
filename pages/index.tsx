@@ -87,6 +87,11 @@ const IndexPage: NextPage<IndexPageProps> = ({ launches, error }) => {
                 background-color: rgba(#fff, 0.15);
               }
 
+              @media screen and (max-width: 800px) {
+                flex-direction: column;
+                align-items: flex-start;
+              }
+
               &:active {
                 transform: scale(0.95);
               }
@@ -102,6 +107,19 @@ const IndexPage: NextPage<IndexPageProps> = ({ launches, error }) => {
                 line-height: 20px;
                 color: rgba(#fff, 0.9);
 
+                @media screen and (max-width: 800px) {
+                  align-items: flex-start;
+                  font-size: 14px;
+
+                  &:not(:last-child) {
+                    margin-bottom: 15px;
+                  }
+
+                  &:first-child {
+                    margin-left: 3px;
+                  }
+                }
+
                 > img {
                   width: 16px;
                   margin-right: 9px;
@@ -109,6 +127,10 @@ const IndexPage: NextPage<IndexPageProps> = ({ launches, error }) => {
 
                   &.rocket {
                     width: 10px;
+
+                    @media screen and (max-width: 800px) {
+                      margin-right: 13px;
+                    }
                   }
                 }
 
@@ -118,6 +140,10 @@ const IndexPage: NextPage<IndexPageProps> = ({ launches, error }) => {
 
                 &:last-child {
                   margin-left: auto;
+
+                  @media screen and (max-width: 800px) {
+                    margin-left: unset;
+                  }
                 }
               }
             }

@@ -4,8 +4,22 @@ html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 body {
   background: black;
+  background-image: url('/images/earth-horizon.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-y: 100%;
+
+  @media screen and (min-width: 1024px) {
+    background-position-y: 150%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    background-position-y: 300%;
+  }
 }

@@ -59,6 +59,10 @@ const LaunchPage: NextPage<LaunchPageProps> = ({ launch, error }) => {
               border-radius: 6px;
               background: rgba(#fff, 0.09);
 
+              @media screen and (max-width: 800px) {
+                flex-direction: column;
+              }
+
               > .info {
                 display: flex;
                 flex-direction: column;
@@ -70,9 +74,17 @@ const LaunchPage: NextPage<LaunchPageProps> = ({ launch, error }) => {
                 letter-spacing: 1px;
                 font-size: 14px;
 
+                @media screen and (max-width: 800px) {
+                  &:not(:last-child) {
+                    margin-bottom: 15px;
+                  }
+                }
+
                 &:last-child {
-                  > .infoTitle {
-                    text-align: right;
+                  @media screen and (min-width: 800px) {
+                    > .infoTitle {
+                      text-align: right;
+                    }
                   }
                 }
 
