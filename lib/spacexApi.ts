@@ -12,6 +12,7 @@ export interface SpaceXLaunch {
   video_url: string
 }
 
+// Returns initialized Apollo client
 function client(): ApolloClient<NormalizedCacheObject> {
   return new ApolloClient({
     uri: API_URL,
@@ -19,6 +20,7 @@ function client(): ApolloClient<NormalizedCacheObject> {
   })
 }
 
+// Returns the past $limit launches.
 export async function getPastLaunches(limit: number): Promise<Array<SpaceXLaunch>> {
   const { data } = await client().query({
     query: gql`
@@ -61,6 +63,7 @@ export async function getPastLaunches(limit: number): Promise<Array<SpaceXLaunch
   })
 }
 
+// Returns the $id launch.
 export async function getLaunch(id: string): Promise<SpaceXLaunch> {
   const { data } = await client().query({
     query: gql`

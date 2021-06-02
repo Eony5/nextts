@@ -130,33 +130,50 @@ interface EmbeddedYoutubeVideoProps {
 }
 
 const EmbeddedYoutubeVideo = ({ videoUrl }: EmbeddedYoutubeVideoProps): JSX.Element => {
-  if (!videoUrl) return <span>No video found</span>
+  try {
+    if (!videoUrl)
+      return (
+        <span className="error">
+          No video found{' '}
+          <style jsx>{`
+            .error {
+              color: white;
+              font-family: 'D-DIN';
+              font-weight: bold;
+              text-align: center;
+            }
+          `}</style>
+        </span>
+      )
 
-  const videoId = videoUrl.split('/').pop()
-  const embedUrl = `https://www.youtube.com/embed/${videoId}`
+    const videoId = videoUrl.split('/').pop()
+    const embedUrl = `https://www.youtube.com/embed/${videoId}`
 
-  return (
-    <div className="embeddedVideo">
-      <div className="left"></div>
-      <iframe
-        src={embedUrl}
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
+    return (
+      <div className="embeddedVideo">
+        <div className="left"></div>
+        <iframe
+          src={embedUrl}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
 
-      <style jsx>{`
-        .embeddedVideo {
-          > iframe {
-            width: 100%;
-            height: 500px;
-            margin-top: 50px;
+        <style jsx>{`
+          .embeddedVideo {
+            > iframe {
+              width: 100%;
+              height: 500px;
+              margin-top: 50px;
+            }
           }
-        }
-      `}</style>
-    </div>
-  )
+        `}</style>
+      </div>
+    )
+  } catch (e) {
+    return <div>An error occurred displaying the launch video</div>
+  }
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {

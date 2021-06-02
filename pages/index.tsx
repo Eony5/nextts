@@ -128,8 +128,6 @@ const IndexPage: NextPage<IndexPageProps> = ({ launches, error }) => {
   )
 }
 
-export default IndexPage
-
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
     const launches = await getPastLaunches(3)
@@ -149,3 +147,5 @@ export const getServerSideProps: GetServerSideProps = async () => {
     }
   }
 }
+
+export default IndexPage

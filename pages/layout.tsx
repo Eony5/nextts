@@ -1,7 +1,11 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
 
-const Layout: NextPage<any> = ({ children }) => (
+interface LayoutPageProps {
+  children: JSX.Element
+}
+
+const Layout: NextPage<LayoutPageProps> = ({ children }) => (
   <div className="layout">
     <Header />
     {children}
@@ -14,7 +18,7 @@ const Layout: NextPage<any> = ({ children }) => (
   </div>
 )
 
-const Header = () => (
+const Header = (): JSX.Element => (
   <header>
     <Link href="/">
       <img src="/images/spacex-logo.svg" alt="SpaceX logo" />
