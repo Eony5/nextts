@@ -15,7 +15,7 @@ const Layout: NextPage<LayoutPageProps> = ({ children }) => (
         padding: 50px;
 
         @media screen and (max-width: 800px) {
-          padding: 10%;
+          padding: 6%;
         }
       }
     `}</style>

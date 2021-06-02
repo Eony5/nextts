@@ -90,6 +90,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ launches, error }) => {
               @media screen and (max-width: 800px) {
                 flex-direction: column;
                 align-items: flex-start;
+                width: auto;
               }
 
               &:active {
